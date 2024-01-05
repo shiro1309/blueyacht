@@ -83,3 +83,20 @@
     transform: translateY(-100%);
   }
 }
+
+.embla {
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+}
+.embla__container {
+  display: flex;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  padding-left: var(--slide-spacing);
+}
+.embla__slide__img {
+  width: 100%;
+  object-fit: cover;
+}

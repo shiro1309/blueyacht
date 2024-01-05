@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -25,10 +29,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex place-content-center`}>
-        <div className='bg-black max-w-7xl w-full'>
-          {children}
-        </div>
+      <body className={`${inter.className} `}>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className='flex flex-col items-center justify-center'>
+            <div className='bg-black max-w-7xl w-full'>
+              <div className='h-20 w-full '></div>
+              {children}
+              <Footer />
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
