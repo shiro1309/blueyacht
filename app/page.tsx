@@ -1,8 +1,6 @@
+import React from 'react';
 
-import useEmblaCarousel from 'embla-carousel-react';
-
-import ImageList from '@/components/imagelist';
-import ParallaxCarousel from '@/components/parallaxcarousel';
+import ImageSlide from '@/components/ImageSlide';
 
 const images: string[] = [
     "/image/furina/1.png", 
@@ -23,7 +21,11 @@ export default function Home() {
             
                 <div className='flex justify-row  p-4 h-dvh'>
                     
-                    <EmblaCarousel images={images}/>
+                <EmblaCarousel>
+                  {images.map((image: string, index: number) => (
+                    <ImageSlide image={image} index={index} key={index} />
+                  ))}
+                </EmblaCarousel>
                 </div>
             
         </main>
