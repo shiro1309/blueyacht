@@ -8,13 +8,8 @@ export default function ImageSlide({ image, index }: { image: string, index: num
           <span className='dark:text-sky-600 text-cyan-700'>{index + 1}</span>
         </div>
       </div>
-      <Image
-        className='block embla__slide__img rounded-lg'
-        src={image} 
-        alt={`image item ${index}`} 
-        width={400} 
-        height={300} 
-      />
+      
+      <img className="embla__slide__img" src={image} alt={`image item ${index}`} />
     </div>
   );
 }
